@@ -78,7 +78,7 @@ import { date } from './date';
 export default function useFetch() {
     const { location } = useLocation();
     const [firstDate, setFirstDate] = useState([]);
-    // const [ img, setImg ] = useState();
+    const [ imgUrl, setImgUrl ] = useState([]);
 
     useEffect(() => {
         if (!location.lat || !location.lon) return;
@@ -90,12 +90,13 @@ export default function useFetch() {
             .then(data => {
                 const first = data.list.filter(item => item.dt_txt.includes(date));
                 setFirstDate(first);
-                // const images = first.weather
+                const imageIcon = first.map(el => `https://openweathermap.org/img/wn/${el.weather[0].icon}.png`);
+                setImgUrl(imageIcon);
             })
             .catch(err => {
                 console.error('에러:', err);
             });
 
     }, [location]);
-    return { firstDate };
+    return { firstDate, imgUrl };
 }
