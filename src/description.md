@@ -2,8 +2,22 @@ data.list.dt_txt 에 09:00:00가 포함되는 애들만 남기기
 
 const filtered = data.list.filter( (item) => item.dt_txt.includes("09:00:00"));
 
+아니다 일자 당 시간별로 나왔으면 좋겠다
+그럼 2025-07-10를 포함하는? 하드코딩?
+ㄴㄴ
+그럼 나중에 시간 지나고 7/10 지나면 데이터 안 뜸.
+시간이 지나도 그에 맞는 오늘날씨 내일날씨 모레날씨 글피 그글피가 나와야 되는데
+
+그럼 일단 new Date로 오늘 날짜를 불러와서
+그거랑 맞는 애를 오늘날씨
+그거의 일자 +1 이 내일 날씨
+이런 식으로 해봐야겠다
+
+data.list.dt_txt
 
 
+
+아래는 오늘9AM ~ 다음날6AM
 const data =
 {
   "cod": "200",
@@ -189,5 +203,113 @@ const data =
         "pod": "d"
       },
       "dt_txt": "2025-07-10 21:00:00"
+    },
+    {
+      "dt": 1752192000,
+      "main": {
+        "temp": 28.9,
+        "feels_like": 28.26,
+        "temp_min": 28.9,
+        "temp_max": 28.9,
+        "pressure": 1012,
+        "sea_level": 1012,
+        "grnd_level": 1006,
+        "humidity": 37,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "구름조금",
+          "icon": "03d"
+        }
+      ],
+      "clouds": {
+        "all": 36
+      },
+      "wind": {
+        "speed": 3.18,
+        "deg": 71,
+        "gust": 6.17
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-07-11 00:00:00"
+    },
+    {
+      "dt": 1752202800,
+      "main": {
+        "temp": 33.91,
+        "feels_like": 32.69,
+        "temp_min": 33.91,
+        "temp_max": 33.91,
+        "pressure": 1012,
+        "sea_level": 1012,
+        "grnd_level": 1006,
+        "humidity": 27,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "맑음",
+          "icon": "01d"
+        }
+      ],
+      "clouds": {
+        "all": 0
+      },
+      "wind": {
+        "speed": 4.15,
+        "deg": 88,
+        "gust": 5.08
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-07-11 03:00:00"
+    },
+    {
+      "dt": 1752213600,
+      "main": {
+        "temp": 36.84,
+        "feels_like": 35.38,
+        "temp_min": 36.84,
+        "temp_max": 36.84,
+        "pressure": 1010,
+        "sea_level": 1010,
+        "grnd_level": 1003,
+        "humidity": 21,
+        "temp_kf": 0
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "맑음",
+          "icon": "01d"
+        }
+      ],
+      "clouds": {
+        "all": 0
+      },
+      "wind": {
+        "speed": 2.54,
+        "deg": 103,
+        "gust": 3.95
+      },
+      "visibility": 10000,
+      "pop": 0,
+      "sys": {
+        "pod": "d"
+      },
+      "dt_txt": "2025-07-11 06:00:00"
     }
   ]};
