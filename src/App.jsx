@@ -6,12 +6,8 @@ import {createGlobalStyle} from "styled-components";
 
 const GlobalStyle = createGlobalStyle `
   body {
-    margin: 0;
-    padding: 0;
     width: 100vw;
     height: 100vh;
-    justify-content: flex-start;
-    align-items: flex-start;
     display: flex;
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -20,21 +16,16 @@ const GlobalStyle = createGlobalStyle `
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    ul {
-    display: flex;
-    flex-direction: row;
-    font-size: 15px;
     
-    }
   }
 `;
 
 const WeatherDiv = styled.div `
   border: 1px solid gray;
   margin: 10px;
-  padding: 10px;
-  min-width: 140px;
+  padding: 15px;
+  min-width: 120px;
+  font-size: 15px;
   background-color: #2f2f2f;
   border-radius: 20px;
   color: white;
@@ -49,19 +40,25 @@ const Hr = styled.hr `
   margin: 0 10px 5px 10px;
 `;
 
-const WeatherUl = styled.ul `
+const Div = styled.div `
   display: flex;
   flex-direction: column;
+  margin: 30px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const DivInUl = styled.div `
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 `
 
 const H = styled.h2`
-  font-size: 30px;
-  margin: 0;
+  font-size: 40px;
+  margin: 0 10px;
 `
 
 
@@ -88,15 +85,14 @@ function App() {
   return (
     <>
         <GlobalStyle />
-        <WeatherUl>
+        <Div>
           <H>{date}</H>
           <DivInUl>
             {firstDate.map( (el, i) => (
               <Content key={el.id} firstDate={el} imgUrl={imgUrl[i]}/>
             ))}
           </DivInUl>
-          <Hr/>
-        </WeatherUl>
+        </Div>
 
 
     </>

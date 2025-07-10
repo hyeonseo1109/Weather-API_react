@@ -10,7 +10,3 @@ function Format (date) {
 
 
 export const date = `${Format(year)}-${Format(month)}-${Format(day)}`;
-export const tomorrowDate = `${Format(year)}-${Format(month)}-${Format(day+1)}`;
-export const afterTwoDayDate = `${Format(year)}-${Format(month)}-${Format(day+2)}`;
-export const afterThreeDayDate = `${Format(year)}-${Format(month)}-${Format(day+3)}`;
-export const afterFourDayDate = `${Format(year)}-${Format(month)}-${Format(day+4)}`;
