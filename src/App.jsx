@@ -116,7 +116,7 @@ function App() {
           <H>{date}</H>
           <DivInUl>
             {firstDate.map( (el, i) => (
-              <Content key={el.id} firstDate={el} imgUrl={imgUrl[i]}/>
+              <Content key={el.dt_txt} firstDate={el} imgUrl={imgUrl[i]}/>
             ))}
           </DivInUl>
         </Div>
