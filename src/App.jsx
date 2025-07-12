@@ -29,7 +29,11 @@ const WeatherDiv = styled.div `
   background-color: #2f2f2f;
   border-radius: 20px;
   color: white;
-
+  box-shadow: 0 0 10px #335480;
+  &:hover {
+    box-shadow: 0 0 20px #22426c;
+    transition: box-shadow 0.3s ease;
+  }
 `;
 
 
@@ -58,7 +62,7 @@ const DivInUl = styled.div `
 
 const H = styled.h2`
   font-size: 40px;
-  margin: 0 10px;
+  margin: 10px;
 `
 
 
@@ -80,7 +84,8 @@ function Content({ firstDate, imgUrl }) {
 }
 
 
-function App() {
+function App() { 
+  
   const { firstDate, imgUrl } = useFetch();
   return (
     <>
