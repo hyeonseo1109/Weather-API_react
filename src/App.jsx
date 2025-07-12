@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle `
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #c3cae0;
     
   }
 `;
@@ -24,7 +25,9 @@ const WeatherDiv = styled.div `
   border: 1px solid gray;
   margin: 10px;
   padding: 15px;
-  min-width: 120px;
+  /* min-width: 120px; */
+  width: 180px;
+  height: 210px;
   font-size: 15px;
   background-color: #2f2f2f;
   border-radius: 20px;
@@ -48,7 +51,6 @@ const Div = styled.div `
   display: flex;
   flex-direction: column;
   margin: 30px;
-  justify-content: center;
   align-items: center;
 `;
 
@@ -57,12 +59,31 @@ const DivInUl = styled.div `
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
 `
 
 const H = styled.h2`
-  font-size: 40px;
+  font-size: 50px;
+  font-weight: 900;
   margin: 10px;
+  color: #2f2f2f
+`
+
+const RightDiv = styled.div `
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  height: 80px;
+
+`
+
+const Img = styled.img`
+  width: 60px;
+  height: 60px;
+`
+
+const TimeH = styled.h5 `
+  font-size: 20px;
+  margin: 5px;
 `
 
 
@@ -70,14 +91,15 @@ function Content({ firstDate, imgUrl }) {
   return (
     <>
       <WeatherDiv>
-        {firstDate.dt_txt.split(" ")[1].slice(0, 5)} <Hr/>
-        <div>
-          온도: {firstDate.main.temp}도 <br/>
-          체감온도: {firstDate.main.feels_like}도 <br/>
-          습도: {firstDate.main.humidity}% <br/>
-          날씨: {firstDate.weather[0].description} <br/>
-          <img src={imgUrl}/>
-        </div>
+        <TimeH>{firstDate.dt_txt.split(" ")[1].slice(0, 5)} </TimeH>
+        <Hr/>
+        온도: {firstDate.main.temp}도 <br/>
+        체감온도: {firstDate.main.feels_like}도 <br/>
+        습도: {firstDate.main.humidity}% <br/>
+        날씨: {firstDate.weather[0].description} <br/>
+        <RightDiv>
+          <Img src={imgUrl}/>
+        </RightDiv>
       </WeatherDiv>
     </>
   )
